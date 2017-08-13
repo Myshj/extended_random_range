@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+<form action="#" th:action="@{/}" th:object="${intervalForm}" method="post">
+    <table>
+        <thead>
+        <td>Bound</td>
+        <td>Value</td>
+        <td>Inclusive</td>
+        </thead>
+        <tr>
+            <td>Min:</td>
+            <td><input type="text" th:field="*{min}"/></td>
+            <td><input type="checkbox" th:field="*{minInclusive}"/></td>
+            <td th:if="${#fields.hasErrors('min')}" th:errors="*{min}">Min Error</td>
+        </tr>
+        <tr>
+            <td>Max:</td>
+            <td><input type="text" th:field="*{max}"/></td>
+            <td><input type="checkbox" th:field="*{maxInclusive}"/></td>
+            <td th:if="${#fields.hasErrors('max')}" th:errors="*{max}">Max Error</td>
+        </tr>
+        <tr>
+            <td>
+                <select th:field="*{type}">
+                    <option value="int">Integer</option>
+                    <option value="double">Double</option>
+                </select>
+            </td>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
